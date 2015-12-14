@@ -1,11 +1,14 @@
 var gulp          = require('gulp');
 var webpack       = require('gulp-webpack');
 
-gulp.task("test", function() {
+gulp.task("msc_index", function() {
     return gulp
         .src('./app/lib/page/*.js')
         .pipe(webpack({
         	watch: true,
+        	output: {
+		        filename: 'index.js'
+		    },
         	module:{
 	            loaders: [{
 			           test: /\.js$/,
@@ -15,6 +18,7 @@ gulp.task("test", function() {
 			           loader: 'babel-loader!jsx-loader?harmony'
 			    }]
 	        },
+	        devtool: 'source-map'
         }))
-        .pipe(gulp.dest('./build'));
+        .pipe(gulp.dest('./dev/'));
 });
