@@ -1,13 +1,19 @@
 var gulp          = require('gulp');
 var webpack       = require('gulp-webpack');
 
-gulp.task("msc_index", function() {
+gulp.task("index_html", function() {
     return gulp
-        .src('./app/lib/page/*.js')
+        .src('./app/index.html')
+        .pipe(gulp.dest('./dev/'));
+});
+
+gulp.task("index_js", function() {
+    return gulp
+        .src('./app/lib/page/index.js')
         .pipe(webpack({
         	watch: true,
         	output: {
-		        filename: 'index.js'
+		        filename: 'index.min.js'
 		    },
         	module:{
 	            loaders: [{
@@ -20,5 +26,7 @@ gulp.task("msc_index", function() {
 	        },
 	        devtool: 'source-map'
         }))
-        .pipe(gulp.dest('./dev/'));
+        .pipe(gulp.dest('./dev/js/'));
 });
+
+gulp.task('msc_index',['index_html','index_js']);
