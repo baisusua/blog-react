@@ -1,18 +1,16 @@
 {
-  "name": "blog-react",
+  "name": "react-starter-kit",
   "private": true,
   "version": "0.0.0",
-  "description": "msc photo static for user",
-  "repository": "https://github.com/baisusua/blog-react",
+  "description": "Amaze UI React Starter Kit",
+  "repository": "https://github.com/amazeui/react-starter-kit",
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
   },
   "devDependencies": {
-    "babel-core": "^6.3.17",
-    "babel-loader": "^6.2.0",
-    "gulp": "^3.8.11",
-    "jsx-loader": "^0.13.2",
+    "amazeui": "^2.5.0",
+    "amazeui-react": "latest",
     "babelify": "^6.1.2",
     "browser-sync": "^2.6.4",
     "browserify": "^10.2.1",
@@ -45,8 +43,13 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
   },
-  "scripts": {},
-  "dependencies": {
-    "gulp-webpack": "^1.5.0"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp",
+    "build": "NODE_ENV=production gulp build"
+  },
+  "browserify-shim": {
+    "react": "global:React",
+    "react-dom": "global:ReactDOM"
   }
 }
