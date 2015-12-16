@@ -5,17 +5,17 @@ var Link = require('react-router').Link;
 var History = require('react-router').History;
 
 var RouteLink = React.createClass({
-  mixins: [History],
+	mixins: [History],
 
-  render: function() {
-    var isActive = this.history.isActive(this.props.to, this.props.query);
-    var activeClassName = isActive ? 'am-active' : '';
-    var link = (
-      <Link {...this.props} />
-    );
+	render: function() {
+	    var isActive = this.history.isActive(this.props.to, this.props.query);
+	    var activeClassName = isActive ? 'am-active' : '';
+	    var link = (
+			<Link {this.props} />
+	    );
 
-    return <li className={activeClassName}>{link}</li>;
-  }
+    	return link;
+	}
 });
 
 module.exports = RouteLink;

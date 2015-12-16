@@ -19,6 +19,7 @@ var App = React.createClass({
   render: function() {
     return (
         <div>
+            <RouteLink to="/">首页</RouteLink>
             <RouteLink to="page1">页面 1</RouteLink>
             <RouteLink to="page2">页面 2</RouteLink>
             <main className="ask-main">

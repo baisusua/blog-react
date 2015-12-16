@@ -48,12 +48,8 @@ var paths = {
 
 // 图片优化
 gulp.task('images', function () {
-  return gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe(gulp.dest(paths.dist.images))
+  return gulp.src('app/images/**')
+    .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}));
 });
 
