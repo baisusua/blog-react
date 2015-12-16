@@ -1,51 +1,29 @@
-'use strict';
+//使用es6 开发
+import React                from 'react';
+import ReactDOM             from 'react-dom';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var IndexRoute = ReactRouter.IndexRoute;
+import Index    from './pages/index';
+import About  from './pages/about';
+import Concat from './pages/concat';
+import List   from './pages/list';
 
-// var AMR = require('amazeui-react');
-// var Topbar = AMR.Topbar;
-// var Nav = AMR.Nav;
-// var CollapsibleNav = AMR.CollapsibleNav;
+import {Router, Route} from 'react-router';
 
-var RouteLink  = require('./components/RouteLink');
-var SiteFooter = require('./components/SiteFooter');
+const history = createBrowserHistory();
 
-var App = React.createClass({
-  render: function() {
-    return (
-        <div>
-            <RouteLink to="/">首页</RouteLink>
-            <RouteLink to="page1">页面 1</RouteLink>
-            <RouteLink to="page2">页面 2</RouteLink>
-            <main className="ask-main">
-               {this.props.children}
-            </main>
-            <SiteFooter />
-        </div>
-    );
-  }
-});
-
-// Pages
-var Index = require('./pages/Index');
-var Page1 = require('./pages/Page1');
-var Page2 = require('./pages/Page2');
-
-var routes = (
-  <Router>
-    <Route path="/" component={App}>
-      <IndexRoute component={Index} />
-      <Route path='page1' component={Page1} />
-      <Route path='page2' component={Page2} />
-    </Route>
-  </Router>
+//定义路由
+const router = (
+    <Router history={history}>
+        <Route path="/" component={Index}>
+            <Route path="about" component={About} />
+            <Route path="concat" component={Concat} />
+            <Route path="list/:id" component={List} />
+        </Route>
+    </Router>
 );
 
-document.addEventListener('DOMContentLoaded', function() {
-  ReactDOM.render(routes, document.getElementById('root'));
-});
+ReactDOM.render(
+    router,
+    document.getElementById('root')
+);

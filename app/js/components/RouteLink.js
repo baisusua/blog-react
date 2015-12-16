@@ -11,9 +11,8 @@ var RouteLink = React.createClass({
 	    var isActive = this.history.isActive(this.props.to, this.props.query);
 	    var activeClassName = isActive ? 'am-active' : '';
 	    var link = (
-			<Link {this.props} />
-	    );
-
+			<Link {...this.props} />
+	    )
     	return link;
 	}
 });
