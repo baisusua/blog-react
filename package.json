@@ -51,5 +51,8 @@
   "browserify-shim": {
     "react": "global:React",
     "react-dom": "global:ReactDOM"
+  },
+  "dependencies": {
+    "react-style": "^0.5.5"
   }
 }

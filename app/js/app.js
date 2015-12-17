@@ -3,6 +3,9 @@ import React                from 'react';
 import ReactDOM             from 'react-dom';
 import createHashHistory    from 'history/lib/createHashHistory';
 
+//js库
+import ajax   from './lib/ajax';
+
 import Index  from './pages/index';
 import About  from './pages/about';
 import Concat from './pages/concat';
@@ -23,7 +26,7 @@ const router = (
         </Route>
     </Router>
 );
-
+console.log(ajax);
 ReactDOM.render(
     router,
     document.getElementById('root')

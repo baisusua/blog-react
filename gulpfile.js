@@ -76,7 +76,7 @@ gulp.task('copy', function () {
 // 转移样式，添加浏览器前缀
 gulp.task('styles', function () {
   return gulp.src(['app/css/*.css'])
-    .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+    // .pipe($.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
     .pipe(gulp.dest('dist/css'))
     .pipe($.csso())
     .pipe($.rename({suffix: '.min'}))
