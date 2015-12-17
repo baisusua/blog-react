@@ -1,16 +1,17 @@
 //使用es6 开发
 import React                from 'react';
 import ReactDOM             from 'react-dom';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import createHashHistory    from 'history/lib/createHashHistory';
 
-import Index    from './pages/index';
+import Index  from './pages/index';
 import About  from './pages/about';
 import Concat from './pages/concat';
 import List   from './pages/list';
 
-import {Router, Route} from 'react-router';
+import {Router, Route, Redirect} from 'react-router';
 
-const history = createBrowserHistory();
+// const history = createBrowserHistory();	//访问地址 需要服务端配合：http://segmentfault.com/q/1010000004085545
+const history = createHashHistory({queryKey: false});	//访问地址关闭参数 不需要服务端配合：http://segmentfault.com/q/1010000004085545
 
 //定义路由
 const router = (

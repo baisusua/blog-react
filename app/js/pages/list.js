@@ -2,6 +2,7 @@ import React from 'react';
 
 class List extends React.Component {
     render () {
+        console.log(this.props);
         return (
             <div>
                 <h3>This is List page.</h3>
